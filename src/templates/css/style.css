@@ -1,0 +1,16 @@
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+body {
+  margin: 0;
+  padding: 10px;
+}
+
+button {
+  font-size: 14px;
+  padding: 5px 10px;
+  -webkit-tap-highlight-color: transparent;
+}

@@ -1,0 +1,40 @@
+{	
+	"name": "dialog",
+	"description": "兼容jQuery与Zepto的移动端弹窗插件。",
+	"version": "2.0.0",
+	"homepage": "https://github.com/sufangyu/dialog2",
+	"download": "https://github.com/sufangyu/dialog2/archive/master.zip",
+	"bugs": "https://github.com/sufangyu/dialog2/issues",
+	"author": {
+		"name": "方雨_Yu",
+		"email": "304683191@qq.com"
+	},
+	"license": "MIT",
+
+	"dist": {
+		"dir": "dist"
+		
+	},
+
+	"src":{
+		"dir": "src",
+		"scripts": [
+			"src/js/dialog.js",
+			"src/js/tapEvent.js",
+			"src/js/ripple.js"
+		],
+		"call": [
+			"js/example.js"
+		],
+		"lib": [
+			"lib/jquery-1.9.1.min.js",
+			"lib/zepto.min.js",
+			"lib/highlight.js"			
+		]
+	},
+
+	"templates": {
+		"dir": "src/templates/"
+	}
+
+}

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta charset="UTF-8">
+    <meta name="wap-font-scale" content="no" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no"/>
+    <meta content="弹窗插件" name="apple-mobile-web-app-title" />
+    <meta content="yes" name="apple-mobile-web-app-capable" />
+    <meta content="telephone=no" name="format-detection">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style" />
+	<title>弹窗插件</title>
+    <link rel="stylesheet" href="../css/dialog.css">
+    <link rel="stylesheet" href="../css/tmpl.css">
+
+    <script src="../lib/zepto.min.js"></script>
+    <!-- build:js ../js/dialog.js -->
+    <script src="../js/ripple.js"></script>
+    <script src="../js/tapEvent.js"></script>
+    <script src="../js/dialog.js"></script>
+    <!-- endbuild -->
+</head>
+<body>
+<div class="demo">
+    
+    <!-- S example-item -->
+    <div class="example-item">
+        <h3 class="example-name">Comfirm 类型</h3>
+        <div class="example-show">
+            <button id="btn-06" class="button button2" type="button">取消/确定</button>
+        </div>
+    </div>
+    <!-- E example-item -->
+
+    <div class="new-list">
+        <ul>
+            <li><a href="http://cn.bing.com/">360搜索，SO靠谱</a></li>
+            <li><a href="http://cn.bing.com/">360搜索，SO靠谱</a></li>
+            <li><a href="http://cn.bing.com/">360搜索，SO靠谱</a></li>
+            <li><a href="http://cn.bing.com/">360搜索，SO靠谱</a></li>
+            <li><a href="http://cn.bing.com/">360搜索，SO靠谱</a></li>
+            <li><a href="http://cn.bing.com/">360搜索，SO靠谱</a></li>
+            <li><a href="http://cn.bing.com/">360搜索，SO靠谱</a></li>
+            <li><a href="http://cn.bing.com/">360搜索，SO靠谱</a></li>
+            <li><a href="http://cn.bing.com/">360搜索，SO靠谱</a></li>
+            <li><a href="http://cn.bing.com/">360搜索，SO靠谱</a></li>
+            <li><a href="http://cn.bing.com/">360搜索，SO靠谱</a></li>
+            <li><a href="http://cn.bing.com/">360搜索，SO靠谱</a></li>
+            <li><a href="http://cn.bing.com/">360搜索，SO靠谱</a></li>
+            <li><a href="http://cn.bing.com/">360搜索，SO靠谱</a></li>
+            <li><a href="http://cn.bing.com/">360搜索，SO靠谱</a></li>
+            <li><a href="http://cn.bing.com/">360搜索，SO靠谱</a></li>
+            <li><a href="http://cn.bing.com/">360搜索，SO靠谱</a></li>
+            <li><a href="http://cn.bing.com/">360搜索，SO靠谱</a></li>
+            <li><a href="http://cn.bing.com/">360搜索，SO靠谱</a></li>
+            <li><a href="http://cn.bing.com/">360搜索，SO靠谱</a></li>
+        </ul>
+    </div>
+
+    <style>
+        .demo { padding: 15px; }
+        .new-list a { text-decoration: none; color: #333; font-size: 14px; padding: 18px 0;  display: block; }
+        .new-list ul { margin: 0; }
+        .new-list li { border-bottom: 1px solid #ccc; }
+    </style>
+
+    <script>
+        $('.new-list a').click(function() {
+            // window.location.href = 'http://www.baidu.com/';
+            // return false;
+        });
+
+        $(document).on('click', '#btn-06', function() {
+            var dialog6 = $(document).dialog({
+                type : 'confirm',
+                style: 'ios',
+                // style: 'android',
+                titleText: '发现新版本',
+                content: '修复Tap事件在安卓低版本手机出现点透；修复弹窗在低版本安卓手机无法居中显示；去除CSS3启用GPU硬件加速。 修复Tap事件在安卓低版本手机出现点透；修复弹窗在低版本安卓手机无法居中显示；去除CSS3启用GPU硬件加速。修复Tap事件在安卓低版本手机出现点透；修复弹窗在低版本安卓手机无法居中显示；去除CSS3启用GPU硬件加速。修复Tap事件在安卓低版本手机出现点透；修复弹窗在低版本安卓手机无法居中显示；去除CSS3启用GPU硬件加速。修复Tap事件在安卓低版本手机出现点透；修复弹窗在低版本安卓手机无法居中显示；去除CSS3启用GPU硬件加速。修复Tap事件在安卓低版本手机出现点透；修复弹窗在低版本安卓手机无法居中显示；去除CSS3启用GPU硬件加速。修复Tap事件在安卓低版本手机出现点透；修复弹窗在低版本安卓手机无法居中显示；去除CSS3启用GPU硬件加速。修复Tap事件在安卓低版本手机出现点透；修复弹窗在低版本安卓手机无法居中显示；去除CSS3启用GPU硬件加速。',
+                overlayClose: true,
+                contentScroll: true,
+
+                buttonStyle: 'stacked',
+                buttons: [
+                    {
+                        name: '现在升级',
+                        class: 'dialog-btn-hl',
+                        callback: function() {
+                            alert('点了“现在升级”');
+                            document.title = '点了“现在升级”';
+                        }
+                    },
+                    {
+                        name: '下次再说',
+                        class: '',
+                        callback: function() {
+                            alert('点了“下次再说”');
+                            document.title = '点了“下次再说”';
+                        }
+                    },
+                    {
+                        name: '不再提醒',
+                        class: '',
+                        callback: function() {
+                            alert('点了“不再提醒”');
+                            document.title = '点了“不再提醒”';
+                        }
+                    }
+                ]
+            });
+        });
+    </script>
+
+</div>
+</body>

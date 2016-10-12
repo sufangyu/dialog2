@@ -1,0 +1,37 @@
+{
+  "name": "dialog",
+  "description": "兼容jQuery与Zepto的移动端弹窗插件。",
+  "version": "2.0.0",
+  "homepage": "https://github.com/sufangyu/dialog2",
+  "author": {
+    "name": "方雨_Yu",
+    "email": "304683191@qq.com"
+  },
+  "license": "MIT",
+  "keywords": [
+    "dialog",
+    "jQuery",
+    "Zepto",
+    "plugin"
+  ],
+  "dependencies": {},
+  "devDependencies": {
+    "grunt": "^1.0.1",
+    "grunt-assemble": "^0.5.0",
+    "grunt-autoprefixer": "^3.0.4",
+    "grunt-contrib-clean": "^1.0.0",
+    "grunt-contrib-compass": "^1.1.1",
+    "grunt-contrib-concat": "^1.0.1",
+    "grunt-contrib-connect": "^1.0.2",
+    "grunt-contrib-copy": "^1.0.0",
+    "grunt-contrib-cssmin": "^1.0.2",
+    "grunt-contrib-imagemin": "^1.0.1",
+    "grunt-contrib-jshint": "^1.0.0",
+    "grunt-contrib-sass": "^1.0.0",
+    "grunt-contrib-uglify": "^2.0.0",
+    "grunt-contrib-watch": "^1.0.0",
+    "grunt-usemin": "^3.1.1",
+    "load-grunt-tasks": "^3.5.2",
+    "time-grunt": "^1.4.0"
+  }
+}

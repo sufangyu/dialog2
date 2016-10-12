@@ -1,0 +1,21 @@
+.ripple {
+    border-radius: 99999px;
+    pointer-events: none;
+    position: absolute;
+    width: 200px; height: 200px;
+    background: rgba(0,0,0,0.5);
+    opacity: 0;
+    -webkit-transform: scale(0);
+    transform: scale(0); 
+    animation: ripple .75s ease-out;
+    -webkit-animation: ripple .75s ease-out;
+}
+
+@-webkit-keyframes ripple {
+      0% { -webkit-transform: scale(0); opacity: .5; }
+    100% { -webkit-transform: scale(2); opacity: 0; }
+}
+@keyframes ripple {
+      0% { transform: scale(0); opacity: .5; }
+    100% { transform: scale(2); opacity: 0; }
+}

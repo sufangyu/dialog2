@@ -1,0 +1,37 @@
+.wrapper {
+	padding: 0 20px;
+}
+.header { 
+	padding: 100px 15px 80px;   
+}
+
+.section-heading {
+    padding: 20px 0;
+}
+.project-title {
+    font-size: 32px;
+}
+.project-description {
+    p {
+        font-size: 16px;
+    }
+}
+
+.content .wrapper {
+    margin: 0 auto;
+}
+
+.main {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 75%;
+    padding-right: 20px;
+    float: left;
+}
+.sidebar {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 25%;
+    float: right;
+}
+

@@ -1,0 +1,921 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="wap-font-scale" content="no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no"/>
+    <meta content="移动端弹窗" name="apple-mobile-web-app-title" />
+    <meta content="yes" name="apple-mobile-web-app-capable" />
+    <meta content="telephone=no" name="format-detection">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style" />
+    <title>移动端弹窗</title>    
+    <link rel="stylesheet" href="../css/tmpl.css">
+    <script src="../lib/zepto.min.js"></script>
+    <script src="../lib/highlight.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>    
+    
+    <link rel="stylesheet" href="../css/dialog.css">
+    <!-- build:js ../js/dialog.js -->
+    <script src="../js/ripple.js"></script>
+    <script src="../js/tapEvent.js"></script>
+    <script src="../js/dialog.js"></script>
+    <!-- endbuild -->
+    <script src="../js/example.js"></script>
+
+</head>
+<body>
+<div class="page">
+    <header class="header">
+        <div class="wrapper clearfix">
+            <h1 class="project-title">Dialog 移动端弹窗</h1>
+            <div class="project-description">
+                <p>这是一款移动端弹窗插件，包括常见的 alert、confirm。toast、notice 四种类型弹窗，支持 jQuery 和 Zepto 库。</p>
+            </div>
+            <div class="project-follow">
+                <div class="button-group">
+                    <a target="_blank" href="https://github.com/sufangyu/dialog2/archive/master.zip" class="button button-default">下载插件</a>
+                    <a target="_blank" href="https://github.com/sufangyu/dialog2" class="button button-default">关注 GitHub</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="content">
+        <div class="wrapper clearfix">
+            <section class="section-heading">
+                <h2 class="section-title">插件概述</h2>
+            </section>
+
+            <section class="main">
+                <!-- S content-block  -->
+                <div class="content-block">
+                    <div class="subtitle">说明</div>
+
+                    <article class="panel">
+                        <h3 class="panel-hd">特性</h3>
+                        <div class="panel-bd">
+                            <ul>    
+                                <li>支持常见的 alert、confirm。toast、notice 四种类型弹窗</li>                
+                                <li>可选择使用 IOS 或者 Material Design 风格的弹窗</li>
+                                <li>可自定义按钮的文字、样式、回调函数，支持多个按钮</li>
+                                <li>多个弹窗状态改变回调函数</li>
+                                <li>同时支持 jQuery 和 Zepto 库</li>
+                                <li>可扩展性强</li>
+                              </ul>
+                        </div>
+                    </article>
+
+                    <article class="panel">
+                        <h3 class="panel-hd">兼容性</h3>
+                        <div class="panel-bd">
+                            <ul>                    
+                                <li>Chrome、Firefox 22+、Opera 9+、Safari、IE10+ </li>
+                                <li>Android 4.0+ (Android 2.3 弹窗动画不够顺畅)</li>
+                                <li>iOS 8+</li>
+                            </ul>
+                        </div>
+                    </article>
+                    
+                </div>
+                <!-- E content-block  -->
+
+
+                <!-- S content-block  -->
+                <div class="content-block">
+                    <div class="subtitle">使用与示例</div>
+
+                    <article class="panel">
+                        <h3 class="panel-hd">使用说明</h3>
+                        <div class="panel-bd">
+                            <h4>1、引入 CSS 文件</h4>
+<div class="hl-section">
+<pre><code class="html">&ltlink rel="stylesheet" href="../css/dialog.css" /&gt</code></pre>
+</div>
+                            <h4>2、引入 JS 文件</h4>
+<div class="hl-section">
+<pre><code class="javascript">&ltscript src="../js/zepto.min.js"&gt&lt/script&gt
+&ltscript src="../js/dialog.js"&gt&lt/script&gt
+</code></pre>
+</div>
+                            <h4>3、HTML 结构</h4>
+<div class="hl-section">
+<pre><code class="javascript">&ltbutton id="btn-01"&gt显示弹窗&lt/button&gt
+</code></pre>
+</div>
+                            <h4>4、实例化</h4>
+<div class="hl-section">
+<pre><code class="javascript">$(document).on('click', '#btn-01', function() {
+    var dialog1 = $(document).dialog({
+        content: 'Dialog 移动端弹窗插件的自定义提示内容',
+    });
+});</code></pre>
+</div>
+                        </div>
+                    </article>
+
+
+                    <article class="panel">
+                        <h3 class="panel-hd">示例</h3>
+                        <div class="panel-bd">                        
+
+                            <!-- ########## alert ########## -->
+
+                            <!-- S example-item -->
+                            <div class="example-item">
+                                <h3 class="example-name">默认</h3>
+                                <div class="example-show">
+                                    <button id="btn-01" class="button button1" type="button">显示弹窗</button>
+                                </div>
+                                <div class="example-code">    
+<div class="hl-section">
+<pre><code class="javascript">$(document).on('click', '#btn-01', function() {
+    $(document).dialog({
+        content: '我是默认的弹窗。这里是提示信息内容',
+    });
+});</code></pre>
+</div>
+                                </div>
+                            </div>
+                            <!-- E example-item -->
+
+                            <!-- S example-item -->
+                            <div class="example-item">
+                                <h3 class="example-name">自定义标题</h3>
+                                <div class="example-show">
+                                    <button id="btn-02" class="button button1" type="button">显示弹窗</button>
+                                </div>
+                                <div class="example-code">    
+<div class="hl-section">
+<pre><code class="javascript">$(document).on('click', '#btn-02', function() {
+    $(document).dialog({
+        titleText: '我是自定义标题',
+        content: '自定义标题的弹窗。这里是弹窗的提示信息内容',
+    });
+});</code></pre>
+</div>
+                                </div>
+                            </div>
+                            <!-- E example-item -->
+
+                            <!-- S example-item -->
+                            <div class="example-item">
+                                <h3 class="example-name">无标题</h3>
+                                <div class="example-show">
+                                    <button id="btn-03" class="button button1" type="button">显示弹窗</button>
+                                </div>
+                                <div class="example-code">    
+<div class="hl-section">
+<pre><code class="javascript">$(document).on('click', '#btn-03', function() {
+    $(document).dialog({
+        titleShow: false,
+        content: '无标题的弹窗。这里是弹窗的提示信息内容',
+    });
+});</code></pre>
+</div>
+                                </div>
+                            </div>
+                            <!-- E example-item -->
+
+                            <!-- S example-item -->
+                            <div class="example-item">
+                                <h3 class="example-name">自动关闭</h3>
+                                <div class="example-show">
+                                    <button id="btn-04" class="button button1" type="button">显示弹窗</button>
+                                </div>
+                                <div class="example-code">    
+<div class="hl-section">
+<pre><code class="javascript">$(document).on('click', '#btn-04', function() {
+    $(document).dialog({
+        autoClose: 2500,
+        content: '自动关闭的弹窗。这里是弹窗的提示信息内容',
+    });
+});</code></pre>
+</div>
+                                </div>
+                            </div>
+                            <!-- E example-item -->
+
+                            <!-- S example-item -->
+                            <div class="example-item">
+                                <h3 class="example-name">点遮罩层关闭</h3>
+                                <div class="example-show">
+                                    <button id="btn-05" class="button button1" type="button">显示弹窗</button>
+                                </div>
+                                <div class="example-code">    
+<div class="hl-section">
+<pre><code class="javascript">$(document).on('click', '#btn-05', function() {
+    $(document).dialog({
+        overlayClose: true,
+        content: '可以点击遮罩层关闭的弹窗。这里是弹窗的提示信息内容',
+    });
+});</code></pre>
+</div>
+                                </div>
+                            </div>
+                            <!-- E example-item -->
+
+
+
+
+                            <!-- ########## confirm ########## -->
+
+                            <!-- S example-item -->
+                            <div class="example-item">
+                                <h3 class="example-name">Comfirm 类型</h3>
+                                <div class="example-show">
+                                    <button id="btn-06" class="button button1" type="button">取消/确定</button>
+                                </div>
+                                <div class="example-code">    
+<div class="hl-section">
+<pre><code class="javascript">$(document).on('click', '#btn-06', function() {
+    $(document).dialog({
+        type: 'comfirm',
+        content: 'confirm 类型的弹窗。这里是弹窗的提示信息内容',
+    });
+});</code></pre>
+</div>
+                                </div>
+                            </div>
+                            <!-- E example-item -->
+
+                            <!-- S example-item -->
+                            <div class="example-item">
+                                <h3 class="example-name">Comfirm 类型, 自定义按钮文字</h3>
+                                <div class="example-show">
+                                    <button id="btn-07" class="button button1" type="button">取消/确定</button>
+                                </div>
+                                <div class="example-code">    
+<div class="hl-section">
+<pre><code class="javascript">$(document).on('click', '#btn-07', function() {
+    $(document).dialog({
+        type : 'confirm',
+        titleText: '发现新版本'
+        content: '修复低版本安卓手机点透以及无法居中显示问题；去除CSS3启用GPU硬件加速',
+        buttonTextConfirm: '现在升级',
+        buttonTextCancel: '下次再说',
+    });
+});</code></pre>
+</div>
+                                </div>
+                            </div>
+                            <!-- E example-item -->
+
+                            <!-- S example-item -->
+                            <div class="example-item">
+                                <h3 class="example-name">Comfirm 类型, 自定义按钮class</h3>
+                                <div class="example-show">
+                                    <button id="btn-08" class="button button1" type="button">取消/确定</button>
+                                </div>
+                                <div class="example-code">    
+<div class="hl-section">
+<pre><code class="javascript">$(document).on('click', '#btn-08', function() {
+    $(document).dialog({
+        type : 'confirm',
+        content: 'confirm 类型的弹窗。这里是弹窗的提示信息内容',
+        buttonClassConfirm: 'custom-confirm',
+        buttonClassCancel: 'custom-cancel',
+    });
+});</code></pre>
+</div>
+                                </div>
+                            </div>
+                            <!-- E example-item -->
+
+                            <!-- S example-item -->
+                            <div class="example-item">
+                                <h3 class="example-name">Comfirm 类型, 按钮回调函数</h3>
+                                <div class="example-show">
+                                    <button id="btn-09" class="button button1" type="button">取消/确定</button>
+                                </div>
+                                <div class="example-code">    
+<div class="hl-section">
+<pre><code class="javascript">$(document).on('click', '#btn-09', function() {
+    $(document).dialog({
+        type : 'confirm',
+        closeBtnShow: true,
+        content: 'confirm 类型的弹窗。这里是弹窗的提示信息内容',
+        onClickConfirmBtn: function(){
+            alert('你点了“确定”按钮');
+        },
+        onClickCancelBtn : function(){
+            alert('你点了“取消”按钮');
+        },
+        onClickCloseBtn  : function(){
+            alert('你点了“关闭”按钮');
+        }
+    });
+});</code></pre>
+</div>
+                                </div>
+                            </div>
+                            <!-- E example-item -->
+
+                            <!-- S example-item -->
+                            <div class="example-item">
+                                <h3 class="example-name">Comfirm 类型, 状态回调函数</h3>
+                                <div class="example-show">
+                                    <button id="btn-10" class="button button1" type="button">取消/确定</button>
+                                </div>
+                                <div class="example-code">    
+<div class="hl-section">
+<pre><code class="javascript">$(document).on('click', '#btn-10', function() {
+    $(document).dialog({
+        type : 'confirm',
+        content: 'confirm 类型的弹窗。这里是弹窗的提示信息内容',
+        onBeforeShow: function() {
+            alert('弹窗显示前执行~~');
+        },
+        onShow: function() {
+            alert('弹窗显示后执行~~');
+        },
+        onBeforeClosed: function() {
+            alert('弹窗关闭前执行~~');
+        },
+        onClosed: function() {
+            alert('弹窗关闭后执行~~');
+        }
+    });
+});</code></pre>
+</div>
+                                </div>
+                            </div>
+                            <!-- E example-item -->
+
+                            <!-- S example-item -->
+                            <div class="example-item">
+                                <h3 class="example-name">弹窗风格</h3>
+                                <div class="example-show">
+                                    <div class="button-group">
+                                        <button id="btn-style-01" class="button button1" type="button">按设备</button>
+                                        <button id="btn-style-02" class="button button1" type="button">IOS</button>
+                                        <button id="btn-style-03" class="button button1" type="button">Android</button>
+                                    </div>
+                                </div>
+                                <div class="example-code">    
+<div class="hl-section">
+<pre><code class="javascript">$(document).on('click', '#btn-style-01', function() {
+    $(document).dialog({
+        type : 'confirm',
+        style: 'default',  // default、ios、android
+        titleText: '弹窗风格',
+        content: '按访问设备显示的弹窗风格，这里是弹窗的提示信息内容',
+    });
+});</code></pre>
+</div>
+                                </div>
+                            </div>
+                            <!-- E example-item -->
+
+
+                            <!-- S example-item -->
+                            <div class="example-item">
+                                <h3 class="example-name">自定义多个按钮</h3>
+                                <div class="example-show">
+                                    <div class="button-group">
+                                        <button id="btn-buttons-01" class="button button1" type="button">IOS</button>
+                                        <button id="btn-buttons-02" class="button button1" type="button">Android</button>
+                                    </div>
+                                </div>
+                                <div class="example-code">    
+<div class="hl-section">
+<pre><code class="javascript">$(document).on('click', '#btn-buttons-02', function() {
+    $(document).dialog({
+        type : 'confirm',
+        style: 'android',
+        titleText: '发现新版本',
+        content: '修复低版本安卓手机点透以及无法居中显示问题；去除CSS3启用GPU硬件加速',
+        buttons: [          
+            {
+                name: '不再提醒',
+                callback: function() {
+                    alert('你选择了“不再提醒”');
+                }
+            },
+            {
+                name: '下次再说',
+                callback: function() {
+                    alert('你选择了“下次再说”');
+                }
+            },
+            {
+                name: '现在升级',
+                class: 'dialog-btn-hl',
+                callback: function() {
+                    alert('你选择了“现在升级”');
+                }
+            }
+        ]
+    });
+});</code></pre>
+</div>
+                                </div>
+                            </div>
+                            <!-- E example-item -->
+
+                            <!-- S example-item -->
+                            <div class="example-item">
+                                <h3 class="example-name">按钮排版样式</h3>
+                                <div class="example-show">
+                                    <div class="button-group">
+                                        <button id="btn-buttonStyle-01" class="button button1" type="button">IOS 并排</button>
+                                        <button id="btn-buttonStyle-02" class="button button1" type="button">IOS 堆叠</button>
+                                        <button id="btn-buttonStyle-03" class="button button1" type="button">Android 并排</button>
+                                        <button id="btn-buttonStyle-04" class="button button1" type="button">Android堆叠</button>
+                                    </div>
+                                </div>
+                                <div class="example-code">    
+<div class="hl-section">
+<pre><code class="javascript">$(document).on('click', '#btn-buttonStyle-01', function() {
+    $(document).dialog({
+        type : 'confirm',
+        style: 'ios',
+        titleText: '发现新版本',
+        content: '修复低版本安卓手机点透以及无法居中显示问题；去除CSS3启用GPU硬件加速',
+        buttonStyle: 'stacked',  // side: 并排; stacked: 堆叠
+        buttons: [
+            { name: '现在升级' },
+            { name: '下次再说' },
+            { name: '不再提醒' }
+        ]
+    });
+});</code></pre>
+</div>
+                                </div>
+                            </div>
+                            <!-- E example-item -->
+
+
+
+
+                            <!-- ########## toast ########## -->
+
+                            <!-- S example-item -->
+                            <div class="example-item">
+                                <h3 class="example-name">Toast 类型</h3>
+                                <div class="example-show">
+                                    <div class="button-group">
+                                        <button id="btn-11" class="button button1" type="button">加载中</button>
+                                        <button id="btn-12" class="button button1" type="button">成功</button>
+                                        <button id="btn-13" class="button button1" type="button">失败</button>
+                                        <button id="btn-14" class="button button1" type="button">纯图标</button>
+                                    </div>
+                                </div>
+                                <div class="example-code">    
+<div class="hl-section">
+<pre><code class="javascript">$(document).on('click', '#btn-11', function() {
+    $(document).dialog({
+        type : 'toast',
+        infoIcon: '../images/icon/loading.gif',
+        infoText: '正在加载中',
+        autoClose: 2500
+    });
+});</code></pre>
+</div>
+                                </div>
+                            </div>
+                            <!-- E example-item -->
+
+                            <!-- S example-item -->
+                            <div class="example-item">
+                                <h3 class="example-name">Toast 类型, content创建内容</h3>
+                                <div class="example-show">
+                                    <div class="button-group">
+                                        <button id="btn-15" class="button button1" type="button">加载中</button>
+                                    </div>
+                                </div>
+                                <div class="example-code">    
+<div class="hl-section">
+<pre><code class="javascript">$(document).on('click', '#btn-15', function() {
+    $(document).dialog({
+        type : 'toast',
+        content: '&ltimg class="info-icon" src="../images/icon/loading.gif" /&gt&ltspan class="info-text"&gt正在加载中&lt/span&gt',
+        autoClose: 2500
+    });
+});</code></pre>
+</div>
+                                </div>
+                            </div>
+                            <!-- E example-item -->
+
+                            <!-- S example-item -->
+                            <div class="example-item">
+                                <h3 class="example-name">Toast 类型, 状态更改</h3>
+                                <div class="example-show">
+                                    <div class="button-group">
+                                        <button id="btn-16" class="button button1" type="button">加载中 TO 成功</button>
+                                    </div>
+                                </div>
+                                <div class="example-code">    
+<div class="hl-section">
+<pre><code class="javascript">$(document).on('click', '#btn-16', function() {
+    var toast5 = $(document).dialog({
+        type : 'toast',
+        infoIcon: '../images/icon/loading.gif',
+        infoText: '正在加载中',
+    });
+
+    setTimeout(function () {
+        toast5.update({
+            infoIcon: '../images/icon/success.png',
+            infoText: '加载成功',
+            autoClose: 2500,
+        });
+    }, 3000);
+});</code></pre>
+</div>
+                                </div>
+                            </div>
+                            <!-- E example-item -->
+
+                            <!-- S example-item -->
+                            <div class="example-item">
+                                <h3 class="example-name">Toast 类型, 弹窗类型更改</h3>
+                                <div class="example-show">
+                                    <div class="button-group">
+                                        <button id="btn-17" class="button button1" type="button">Toast TO Modal</button>
+                                    </div>
+                                </div>
+                                <div class="example-code">    
+<div class="hl-section">
+<pre><code class="javascript">$(document).on('click', '#btn-17', function() {
+    var toast6 = $(document).dialog({
+        type : 'toast',
+        infoIcon: '../images/icon/loading.gif',
+        infoText: '正在加载中',
+    });
+
+    setTimeout(function () {
+        toast6.close();
+        $(document).dialog({
+            content: '加载失败！请重新再试',
+        });
+    }, 2500);
+});</code></pre>
+</div>
+                                </div>
+                            </div>
+                            <!-- E example-item -->
+
+
+
+                            <!-- ########## notice ########## -->
+
+                            <!-- S example-item -->
+                            <div class="example-item">
+                                <h3 class="example-name">Notice 类型</h3>
+                                <div class="example-show">
+                                    <div class="button-group">
+                                        <button id="btn-18" class="button button1" type="button">图标+文字</button>
+                                        <button id="btn-19" class="button button1" type="button">纯文字</button>
+                                        <button id="btn-20" class="button button1" type="button">纯图标</button>
+                                        <button id="btn-21" class="button button1" type="button">底部显示</button>
+                                    </div>
+                                </div>
+                                <div class="example-code">    
+<div class="hl-section">
+<pre><code class="javascript">$(document).on('click', '#btn-17', function() {
+    $(document).dialog({
+        type : 'notice',
+        infoIcon: '../images/icon/loading.gif',
+        infoText: '正在加载中',
+        autoClose: 2500
+    });
+});
+
+$(document).on('click', '#btn-21', function() {
+    $(document).dialog({
+        type : 'notice',
+        infoText: '正在提交中',
+        autoClose: 2500,
+        position: 'bottom'  // center: 居中; bottom: 底部
+    });
+});</code></pre>
+</div>
+                                </div>
+                            </div>
+                            <!-- E example-item -->
+
+                            <!-- S example-item -->
+                            <div class="example-item">
+                                <h3 class="example-name">Notice 类型，content创建内容</h3>
+                                <div class="example-show">
+                                    <div class="button-group">
+                                        <button id="btn-22" class="button button1" type="button">提交中</button>
+                                </div>
+                                <div class="example-code">    
+<div class="hl-section">
+<pre><code class="javascript">$(document).on('click', '#btn-22', function() {
+    $(document).dialog({
+        type : 'notice',
+        content: '&ltimg class="info-icon" src="../images/icon/loading.gif" alt="" /&gt&ltspan class="info-text"&gt正在提交中&lt/span&gt',
+        autoClose: 2500
+    });
+});</code></pre>
+</div>
+                                </div>
+                            </div>
+                            <!-- E example-item -->
+
+                            <!-- S example-item -->
+                            <div class="example-item">
+                                <h3 class="example-name">Notice 类型，状态更改</h3>
+                                <div class="example-show">
+                                    <div class="button-group">
+                                        <button id="btn-23" class="button button1" type="button">提交中 TO 成功</button>
+                                </div>
+                                <div class="example-code">    
+<div class="hl-section">
+<pre><code class="javascript">$(document).on('click', '#btn-23', function() {
+    var notice5 = $(document).dialog({
+        type : 'notice',
+        infoIcon: '../images/icon/loading.gif',
+        infoText: '正在加载中'
+    });
+
+    setTimeout(function () {
+        notice5.update({
+            infoIcon: '../images/icon/success.png',
+            infoText: '加载成功！！',
+            autoClose: 2500
+        });
+    }, 3000);
+});</code></pre>
+</div>
+                                </div>
+                            </div>
+                            <!-- E example-item -->                           
+
+
+
+
+                        </div>
+                    </article>
+
+                </div>
+                <!-- E content-block  -->
+
+
+                <!-- S content-block  -->
+                <div class="content-block">
+                    <div class="subtitle">API</div>
+
+                    <article class="panel">
+                        <h3 class="panel-hd">参数</h3>
+                        <div class="panel-bd">
+                            <div class="parameter-desc">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>参数</th>
+                                            <th>默认值</th>
+                                            <th>说明</th>
+                                        </tr>                           
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>type</td>
+                                            <td>'alert'</td>
+                                            <td>弹窗的类型。alert: 确定; confirm: 确定/取消; toast: 状态提示; notice: 提示信息</td>
+                                        </tr>
+                                        <tr>
+                                            <td>style</td>
+                                            <td>'default'</td>
+                                            <td>alert 与 confirm 弹窗的风格。<br />default: 根据访问设备平台; ios: ios 风格; android: MD design 风格</td>
+                                        </tr>
+                                        <tr>
+                                            <td>titleShow</td>
+                                            <td>true</td>
+                                            <td>是否显示标题</td>
+                                        </tr>
+                                        <tr>
+                                            <td>titleText</td>
+                                            <td>'提示'</td>
+                                            <td>标题文字</td>
+                                        </tr>
+                                        <tr>
+                                            <td>closeBtnShow</td>
+                                            <td>false</td>
+                                            <td>是否显示关闭按钮</td>
+                                        </tr>
+                                        <tr>
+                                            <td>content</td>
+                                            <td>''</td>
+                                            <td>弹窗提示内容, 值可以是 HTML 内容</td>
+                                        </tr>
+                                        <tr>
+                                            <td>contentScroll</td>
+                                            <td>true</td>
+                                            <td>alert 与 confirm 弹窗提示内容是否限制最大高度, 使其可以滚动</td>
+                                        </tr>
+                                        <tr>
+                                            <td>dialogClass</td>
+                                            <td>''</td>
+                                            <td>弹窗自定义 class</td>
+                                        </tr>
+                                        <tr>
+                                            <td>autoClose</td>
+                                            <td>0</td>
+                                            <td>弹窗自动关闭的延迟时间(毫秒)。<br />0: 不自动关闭; 大于0: 自动关闭弹窗的延迟时间</td>
+                                        </tr>
+                                        <tr>
+                                            <td>overlayShow</td>
+                                            <td>true</td>
+                                            <td>是否显示遮罩层</td>
+                                        </tr>
+                                        <tr>
+                                            <td>overlayClose</td>
+                                            <td>false</td>
+                                            <td>是否可以点击遮罩层关闭弹窗</td>
+                                        </tr>
+                                        <tr>
+                                            <td>buttonStyle</td>
+                                            <td>'side'</td>
+                                            <td>按钮排版样式。side: 并排; stacked: 堆叠</td>
+                                        </tr>
+                                        <tr>
+                                            <td>buttonTextConfirm</td>
+                                            <td>'确定'</td>
+                                            <td>确定按钮文字</td>
+                                        </tr>
+                                        <tr>
+                                            <td>buttonTextCancel</td>
+                                            <td>'取消'</td>
+                                            <td>取消按钮文字</td>
+                                        </tr>
+                                        <tr>
+                                            <td>buttonClassConfirm</td>
+                                            <td>''</td>
+                                            <td>确定按钮自定义 class</td>
+                                        </tr>
+                                        <tr>
+                                            <td>buttonClassCancel</td>
+                                            <td>''</td>
+                                            <td>取消按钮自定义 class</td>
+                                        </tr>
+                                        <tr>
+                                            <td>buttons</td>
+                                            <td>[]</td>
+                                            <td>confirm 弹窗自定义按钮组, 会覆盖"确定"与"取消"按钮; <br />单个 button 对象可设置 name [ 名称 ]、class [ 自定义class ]、callback [ 点击执行的函数 ]</td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>infoIcon</td>
+                                            <td>''</td>
+                                            <td>toast 与 notice 弹窗的提示图标, 值为图标的路径。不设置=不显示</td>
+                                        </tr>
+                                        <tr>
+                                            <td>infoText</td>
+                                            <td>''</td>
+                                            <td>toast 与 notice 弹窗的提示文字, 会覆盖 content 的设置</td>
+                                        </tr>
+                                        <tr>
+                                            <td>position</td>
+                                            <td>'center'</td>
+                                            <td>notice 弹窗的位置, center: 居中; bottom: 底部</td>
+                                        </tr>
+
+                                        
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="panel">
+                        <h3 class="panel-hd">回调函数</h3>
+                        <div class="panel-bd">
+                            <div class="parameter-desc">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>函数</th>
+                                            <th>默认值</th>
+                                            <th>说明</th>
+                                        </tr>                           
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>onClickConfirmBtn</td>
+                                            <td>function(){}</td>
+                                            <td>点击“确定”按钮的回调函数</td>
+                                        </tr>
+                                        <tr>
+                                            <td>onClickCancelBtn</td>
+                                            <td>function(){}</td>
+                                            <td>点击“取消”按钮的回调函数</td>
+                                        </tr>
+                                        <tr>
+                                            <td>onClickCloseBtn</td>
+                                            <td>function(){}</td>
+                                            <td>点击“关闭”按钮的回调函数</td>
+                                        </tr>
+                                        <tr>
+                                            <td>onBeforeShow</td>
+                                            <td>function(){}</td>
+                                            <td>弹窗显示前的回调函数</td>
+                                        </tr>
+                                        <tr>
+                                            <td>onShow</td>
+                                            <td>function(){}</td>
+                                            <td>弹窗显示后的回调函数</td>
+                                        </tr>
+                                        <tr>
+                                            <td>onBeforeClosed</td>
+                                            <td>function(){}</td>
+                                            <td>弹窗关闭前的回调函数</td>
+                                        </tr>
+                                        <tr>
+                                            <td>onClosed</td>
+                                            <td>function(){}</td>
+                                            <td>弹窗关闭后的回调函数</td>
+                                        </tr>
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="panel">
+                        <h3 class="panel-hd">方法</h3>
+                        <div class="panel-bd">
+                            <div class="parameter-desc">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>方法</th>
+                                            <th>说明</th>
+                                        </tr>                           
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>obj.close</td>
+                                            <td>关闭对话框。<br />用法：dialogObj.close()</td>
+                                        </tr>
+                                        <tr>
+                                            <td>obj.update</td>
+                                            <td>
+                                                更改 toast 和 notice 类型弹窗内容 ( 图标以及提示文字 )<br />
+                                                可传入参数：<br>
+                                                content: 弹窗内容, 可以是HTML <br>
+                                                infoIcon: 弹窗提示图标<br>
+                                                infoText: 弹窗提示文字<br>
+                                                autoClose: 自动关闭的延迟时间<br>
+                                                onBeforeClosed: 关闭前回调函数<br>
+                                                onClosed: 关闭后回调函数
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </article>
+
+                </div>
+                <!-- E content-block  -->
+
+
+
+            </section>
+
+            <aside class="sidebar">
+                <!-- S content-block  -->
+                <div class="content-block">
+                    <div class="subtitle">反馈 BUG</div>
+                    <p><a target="_blank" href="https://github.com/sufangyu/dialog2/issues">GiHub issues</a></p>
+                </div>
+                <!-- E content-block  -->
+
+                <!-- S content-block  -->
+                <div class="content-block">
+                    <div class="subtitle">依赖</div>
+                    <p>需要使用 jQuery 或者 Zepto 库</p>
+                </div>
+                <!-- E content-block  -->
+
+                <!-- S content-block  -->
+                <div class="content-block">
+                    <div class="subtitle">版本</div>
+                    <ul class="history-version">
+                        <li><span class="version">v2.0.0</span><span class="time">2016-10-08</span></li>
+                        <li><span class="version">v1.0.3</span><span class="time">2016-07-15</span></li>
+                        <li><span class="version">v1.0.2</span><span class="time">2016-06-22</span></li>
+                        <li><span class="version">v1.0.1</span><span class="time">2016-06-19</span></li>
+                        <li><span class="version">v1.0.0</span><span class="time">2016-06-04</span></li>
+                    </ul>
+                </div>
+                <!-- E content-block  -->
+
+
+                <!-- S content-block  -->
+                <div class="content-block">
+                    <div class="subtitle">协议</div>
+                    <p>MIT</p>
+                </div>
+                <!-- E content-block  -->
+            </aside>
+        </div>
+    </section>
+</div>
+</body>
+</html>

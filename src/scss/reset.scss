@@ -1,0 +1,30 @@
+* {
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+a {
+	color: #6064ad;
+	text-decoration: none;	
+}
+ul, ol {
+	margin-left: 20px;
+
+	li {
+		padding: 5px 0;
+	}
+}
+button { 
+	border: none; 
+    outline: none; 
+    background-color: rgba(0,0,0,0); 
+    -webkit-tap-highlight-color: rgba(0,0,0,0); 
+    font-family: "Microsoft Yahei";
+    vertical-align: middle;
+    cursor: pointer;
+}
+
+a {
+  transition: transform 1s;
+  display: flex;
+}
