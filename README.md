@@ -212,30 +212,15 @@ $(document).on('click', '#btn-01', function() {
 
 
 ## 方法
-<table>
-    <thead>
-        <tr>
-            <th>方法</th>
-            <th>说明</th>
-        </tr>                           
-    </thead>
-    <tbody>
-        <tr>
-            <td>obj.close</td>
-            <td>关闭对话框。<br />用法：dialogObj.close()</td>
-        </tr>
-        <tr>
-            <td>obj.update</td>
-            <td>
-                更改 toast 和 notice 类型弹窗内容 ( 图标以及提示文字 )<br />
+| 方法            | 说明  |
+| :--------       | :----  |
+|obj.close |关闭对话框。<br />用法：dialogObj.close() |
+| obj.update | 更改 toast 和 notice 类型弹窗内容 ( 图标以及提示文字 )<br />
                 可传入参数：<br>
                 content: 弹窗内容, 可以是HTML <br>
                 infoIcon: 弹窗提示图标<br>
                 infoText: 弹窗提示文字<br>
                 autoClose: 自动关闭的延迟时间<br>
                 onBeforeClosed: 关闭前回调函数<br>
-                onClosed: 关闭后回调函数
-            </td>
-        </tr>
-    </tbody>
-</table>
+                onClosed: 关闭后回调函数  |
+
