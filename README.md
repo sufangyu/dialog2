@@ -217,3 +217,44 @@ $(document).on('click', '#btn-01', function() {
 |obj.close |关闭对话框。<br />用法：dialogObj.close() |
 | obj.update | 更改 toast 和 notice 类型弹窗内容 ( 图标以及提示文字 )<br />可传入参数：<br>content: 弹窗内容, 可以是HTML <br>                infoIcon: 弹窗提示图标<br>infoText: 弹窗提示文字<br>autoClose: 自动关闭的延迟时间<br>onBeforeClosed: 关闭前回调函数<br>onClosed: 关闭后回调函数  |
 
+
+## 目录结构
+├─dist                // 项目发布资源目录, Grunt 生成
+│  ├─css              // 项目 CSS 文件
+│  ├─demos            // 项目示例页面
+│  ├─images           // 项目 image 文件
+│  ├─js               // 项目 JS 文件
+│  │  ├─dialog.js     // 弹窗 JS
+│  │  ├─dialog.min.js // 弹窗最小版本 JS
+│  │  └─example.js    // 示例 JS
+│  └─lib              // 公共 JS 文件
+│
+├─src                 // 实际进行开发的目录
+│  ├─css              // 项目 CSS 文件, 由 Grunt 生成
+│  ├─demos            // 项目示例页面
+│  ├─images           // 项目 image 文件
+│  ├─js               // 项目 JS 文件
+│  │  ├─dialog.js     // 弹窗主要 JS
+│  │  ├─example.js    // 示例 JS
+│  │  ├─ripple.js     // 点击水波纹效果 JS
+│  │  └─tapEvent.js   // 点击事件 JS
+│  ├─lib              // 公共 JS 文件
+│  ├─scss             // 项目相关 SCSS 文件
+│  └─templates        // 初始静态 DMEO 资源目录
+│
+├─Gruntfile.js        // Grunt任务配置
+├─_config.json        // Grunt配置所需信息
+└─package.json        // 项目信息以及依赖
+
+
+## Grunt 使用方法
+**1、安装 Grunt**
+```
+npm install
+```
+
+**2、在本地运行项目**
+```
+grunt serve
+```
+
