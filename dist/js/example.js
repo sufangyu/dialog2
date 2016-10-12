@@ -1,28 +1,10 @@
-/**
- *  http://loading.io/
- *  类型：alert、confirm、prompt、info、notice、toast
- *  http://www.material-ui.com/#/components/dialog
- *  http://www.jq22.com/jquery-info3103
- *  http://www.jq22.com/demo/sweetalert-master-150108224250/
- *  http://www.xueui.cn/experience/app-experience/dialogs.html
- *  
- *  http://mt.sohu.com/20160504/n447660362.shtml  IOS
- *  http://my.oschina.net/u/2340880/blog/408873?p=1
- *  http://www.zaole.net/demo/201601121043.html
- *  
- */
 $(function() {
-
-	/*$('.demo').click(function() {
-		alert('TAP事件出BUG了！居然点到我这里？');
-	});*/
-		
 
 	/* ########## alert ########## */
 	$(document).on('click', '#btn-01', function() {
 		var dialog1 = $(document).dialog({
-			// content: '我是默认的弹窗。这里是提示信息内容'
-			content: '我是默认的弹窗。这里是提示信息内容。我是默认的弹窗。这里是提示信息内容我是默认的弹窗。这里是提示信息内容我是默认的弹窗。这里是提示信息内容我是默认的弹窗。这里是提示信息内容我是默认的弹窗。这里是提示信息内容我是默认的弹窗。这里是提示信息内容我是默认的弹窗。这里是提示信息内容我是默认的弹窗。这里是提示信息内容我是默认的弹窗。这里是提示信息内容我是默认的弹窗。这里是提示信息内容我是默认的弹窗。这里是提示信息内容我是默认的弹窗。这里是提示信息内容我是默认的弹窗。这里是提示信息内容我是默认的弹窗。这里是提示信息内容我是默认的弹窗。',
+			content: '我是默认的弹窗。这里是提示信息内容'
+			// content: '我是默认的弹窗。这里是提示信息内容。我是默认的弹窗。这里是提示信息内容我是默认的弹窗。这里是提示信息内容我是默认的弹窗。这里是提示信息内容我是默认的弹窗。这里是提示信息内容我是默认的弹窗。这里是提示信息内容我是默认的弹窗。这里是提示信息内容我是默认的弹窗。这里是提示信息内容我是默认的弹窗。这里是提示信息内容我是默认的弹窗。这里是提示信息内容我是默认的弹窗。这里是提示信息内容我是默认的弹窗。这里是提示信息内容我是默认的弹窗。这里是提示信息内容我是默认的弹窗。这里是提示信息内容我是默认的弹窗。这里是提示信息内容我是默认的弹窗。',
 			// content: '我是默认的弹窗。这里是提示信息内容。我是默认的弹窗。这里是提示信息内容我是默认的弹窗。这里是提示信息内容我是默认的弹窗。这里是提示信息内容我是默认的弹窗。这里是提示信息内容我是默认的弹窗。这里是提示信息内容我是默认的弹窗。这里是提示信息内容我是默认的弹窗。这里是提示信息内容我是默认的弹窗。这里是提示信息内容我是默认的弹窗。这里是提示信息内容我是默认的弹窗。这里是提示信息内容我是默认的弹窗。这里是提示信息内容我是默认的弹窗。这里是提示信息内容我是默认的弹窗。这里是提示信息内容我是默认的弹窗。这里是提示信息内容我是默认的弹窗。这里是提示信息内容我是默认的弹窗。这里是提示信息内容我是默认的弹窗。这里是提示信息内容我是默认的弹窗。这里是提示信息内容我是默认的弹窗。这里是提示信息内容我是默认的弹窗。这里是提示信息内容我是默认的弹窗。这里是提示信息内容我是默认的弹窗。这里是提示信息内容',
 			// contentScroll: true,
 			// style: 'android',
@@ -427,38 +409,4 @@ $(function() {
         }, 3000);
     });
 
-
-
-	/** 
-		type         : 'alert',   // 弹窗的类型 [ alert: 确定; confirm: 确定/取消; toast: 状态提示; notice: 提示信息 ]
-        style        : 'default', // alert 与 confirm 弹窗的风格 [ default: 根据访问设备平台; ios: ios 风格; android: android MD 风格 ]
-        titleShow    : true,      // 是否显示标题
-        titleText    : '提示',    // 标题文字
-        closeBtnShow : false,     // 是否显示关闭按钮
-        content      : '',        // 弹窗提示内容, 值可以是 HTML 内容
-        contentScroll: false,     // 弹窗提示内容是否限制最高高度, 使其可以滚动
-        dialogClass  : '',        // 弹窗自定义 class
-        autoClose    : 0,         // 弹窗自动关闭的延迟时间(毫秒)。0: 不自动关闭; 大于0: 自动关闭弹窗的延迟时间
-        overlayShow  : true,      // 是否显示遮罩层
-        overlayClose : false,     // 是否可以点击遮罩层关闭弹窗
-         
-        buttonStyle       : 'side',   // 按钮排版样式 [ side: 并排; stacked: 堆叠 ]
-        buttonTextConfirm : '确定',   // 确定按钮文字
-        buttonTextCancel  : '取消',   // 取消按钮文字
-        buttonClassConfirm: '',       // 确定按钮自定义 class
-        buttonClassCancel : '',       // 取消按钮自定义 class
-        buttons           : [],       // 自定义按钮组, 会覆盖"确定"与"取消"按钮; 单个 button 对象可设置 name [ 名称 ]、class [ 自定义class ]、callback [ 点击执行的函数 ]
-
-        infoIcon: '',        // toast 与 notice 类型弹窗的提示图标, 值为图标的路径。不设置=不显示
-        infoText: '',        // toast 与 notice 类型弹窗的提示文字, 会覆盖 content 的设置
-        position: 'center',  // notice 类型弹窗的位置, [ center: 居中; bottom: 底部 ]
-
-        onClickConfirmBtn: function(){},  // “确定”按钮的回调函数
-        onClickCancelBtn : function(){},  // “取消”按钮的回调函数
-        onClickCloseBtn  : function(){},  // “关闭”按钮的回调函数
-        onBeforeShow     : function(){},  // 弹窗显示前的回调函数
-        onShow           : function(){},  // 弹窗显示后的回调函数
-        onBeforeClosed   : function(){},  // 弹窗关闭前的回调函数
-        onClosed         : function(){}   // 弹窗关闭后的回调函数
-	*/
 });
