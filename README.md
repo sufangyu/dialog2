@@ -220,6 +220,7 @@ $(document).on('click', '#btn-01', function() {
 
 ## 目录结构
 ```
+.
 ├─dist                # 项目发布资源目录, Grunt 生成
 │  ├─css              # 项目 CSS 文件
 │  ├─demos            # 项目示例页面
