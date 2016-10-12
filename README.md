@@ -14,6 +14,17 @@
 + 按钮排版样式，并排或者堆叠
 + notice 弹窗的位置，居中或者底部
 
+### 截图
+![11](http://7xp00j.com1.z0.glb.clouddn.com/modal.gif)
+![22](http://7xp00j.com1.z0.glb.clouddn.com/moreButtons.gif)
+![33](http://7xp00j.com1.z0.glb.clouddn.com/moduleChange.gif)
+
+
+## 示例
+查看效果，扫二维码或者移步→：[demo示例](http://sufangyu.github.io/project/dialog2/dist/demos/)
+![erweima](http://7xp00j.com1.z0.glb.clouddn.com/dialog2EWM.png)
+
+
 ## 使用说明
 **1、引入 CSS 文件**
 ```css
@@ -40,8 +51,6 @@ $(document).on('click', '#btn-01', function() {
 });
 ```
 
-## 示例
-查看效果，请移步→：[demo示例](http://sufangyu.github.io/project/dialog2/dist/demos/)
 
 
 ## 参数
