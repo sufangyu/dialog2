@@ -219,6 +219,7 @@ $(document).on('click', '#btn-01', function() {
 
 
 ## 目录结构
+```
 ├─dist                // 项目发布资源目录, Grunt 生成
 │  ├─css              // 项目 CSS 文件
 │  ├─demos            // 项目示例页面
@@ -245,7 +246,7 @@ $(document).on('click', '#btn-01', function() {
 ├─Gruntfile.js        // Grunt任务配置
 ├─_config.json        // Grunt配置所需信息
 └─package.json        // 项目信息以及依赖
-
+```
 
 ## Grunt 使用方法
 **1、安装 Grunt**
