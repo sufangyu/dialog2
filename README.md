@@ -15,15 +15,14 @@
 + notice 弹窗的位置，居中或者底部
 
 ### 截图
-![11](http://7xp00j.com1.z0.glb.clouddn.com/modal.gif =100)
-![22](http://7xp00j.com1.z0.glb.clouddn.com/moreButtons.gif =100)
-![33](http://7xp00j.com1.z0.glb.clouddn.com/moduleChange.gif =100)
+<img src="http://7xp00j.com1.z0.glb.clouddn.com/modal.gif" width="150" />
+<img src="http://7xp00j.com1.z0.glb.clouddn.com/moreButtons.gif" width="150" />
+<img src="http://7xp00j.com1.z0.glb.clouddn.com/moduleChange.gif" width="150" />
 
 
 ## 示例
 查看效果，扫二维码或者移步→：[demo示例](http://sufangyu.github.io/project/dialog2/dist/demos/)
-
-![erweima](http://7xp00j.com1.z0.glb.clouddn.com/dialog2EWM.png =100)
+<img src="http://7xp00j.com1.z0.glb.clouddn.com/dialog2EWM.png" width="100" alt="erweima" />
 
 
 ## 使用说明
