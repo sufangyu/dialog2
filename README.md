@@ -16,23 +16,23 @@
 
 ## 使用说明
 **1、引入 CSS 文件**
-```
+```css
 <link rel="stylesheet" href="../css/dialog.css" />
 ```
 
 **2、引入 JS 文件**
-```
+```javascript
 <script src="../lib/zepto.min.js"></script>
 <script src="../js/dialog.js"></script>
 ```
 
 **3、HTML 结构**
-```
+```html
 <button id="btn-01">显示弹窗</button>
 ```
 
 **4、实例化**
-```
+```javascript
 $(document).on('click', '#btn-01', function() {
     var dialog1 = $(document).dialog({
         content: 'Dialog 移动端弹窗插件的自定义提示内容',
