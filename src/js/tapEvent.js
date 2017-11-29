@@ -17,7 +17,8 @@
 
         $(document)
             .on('touchstart', function(e) {
-                var touch = e.touches[0];
+                var e = e.originalEvent || e;
+                var touch = e.changedTouches[0];
 
                 element = $('tagName' in touch.target ? touch.target : touch.target.parentNode);
                 startTime = new Date();
@@ -27,12 +28,15 @@
                 endY = touch.clientY;
             })
             .on('touchmove',function(e) {
-                var touch = e.touches[0];
+                var e = e.originalEvent || e;
+                var touch = e.changedTouches[0];
 
                 endX = touch.clientX;
                 endY = touch.clientY;
             })
             .on('touchend',function(e) {
+                var e = e.originalEvent || e;
+                var touch = e.changedTouches[0];
                 var endTime = new Date();
 
                 // 结束时间 - 开始时间 < 300毫秒, 并且移动距离(开始坐标-结束左边)<20, 则触发事件 tapEvent
@@ -41,11 +45,12 @@
                         element.trigger('tapEvent');
                     }
                 }
+
                 startTime = 0;
                 startX = 0;
                 startY = 0;
                 endX = 0;
-                endY = 0;                
+                endY = 0;
             });
     });
 
