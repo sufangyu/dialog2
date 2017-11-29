@@ -552,7 +552,7 @@
         return this.each(function(){
             var $this = $(this),
                 instance = window.jQuery ? $this.data('dialog') : $.fn.dialog.lookup[$this.data('dialog')];
-            
+                        
             if (!instance) {
                 var obj = new Dialog(this, options);
                 obj._init();
@@ -564,6 +564,9 @@
                     $this.data('dialog', $.fn.dialog.lookup.i);
                     instance = $.fn.dialog.lookup[$this.data('dialog')];
                 }
+            } else {
+                var obj = new Dialog(this, options);
+                obj._init();
             }
 
             if (typeof options === 'string') { instance[options](); }
