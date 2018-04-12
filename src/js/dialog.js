@@ -1,7 +1,7 @@
 /**
- * dialog  v2.0.0
- * @date  2016-10-12
- * @author 方雨_Yu
+ * dialog  v2.1.0
+ * @date  2018-04-12
+ * @author  方雨_Yu
  * @home  https://github.com/sufangyu/dialog2
  * @bugs  https://github.com/sufangyu/dialog2/issues
  * Licensed under MIT
@@ -31,6 +31,8 @@
              */ 
             _init: function() {
                 var self = this;
+
+                console.log('初始化弹窗');
                 
                 clearTimeout(self.autoCloseTimer);
                 
@@ -38,6 +40,13 @@
                 self.tapBug = self._hasTapBug();        // 是否有点透 BUG
                 self.platform = mobileUtil.platform;    // 访问设备平台
                 self.dislogStyle = self.settings.style==='default' ? self.platform : self.settings.style;    // 弹窗风格, 默认自动判断平台; 否则, 为指定平台
+
+
+                // 创建弹窗显示时, 禁止 body 内容滚动的样式并且添加到 head
+                if ($('#dialog-body-no-scroll').length === 0) {
+                    var styleContent = '.body-no-scroll { position: absolute; overflow: hidden; width: 100%; }';
+                    $('head').append('<style id="dialog-body-no-scroll">'+ styleContent +'</style>');
+                }
 
                 self._renderDOM();
                 self._bindEvents();
@@ -62,24 +71,30 @@
 
                 // 确定按钮关闭弹窗
                 self.$confirmBtn.on(mobileUtil.tapEvent, function(ev) {
-                    self.closeDialog();
-                    self.settings.onClickConfirmBtn();
+                    var callback = self.settings.onClickConfirmBtn();
+                    if (callback || callback === undefined) {
+                        self.closeDialog();
+                    }          
                 }).on('touchend', function(ev) {
                     ev.preventDefault();
                 });
 
                 // 取消按钮关闭弹窗
                 self.$cancelBtn.on(mobileUtil.tapEvent, function(ev) {
-                    self.closeDialog();
-                    self.settings.onClickCancelBtn();
+                    var callback = self.settings.onClickCancelBtn();
+                    if (callback || callback === undefined) {
+                        self.closeDialog();
+                    } 
                 }).on('touchend', function(ev) {
                     ev.preventDefault();
                 });
 
                 // 关闭按钮关闭弹窗
                 self.$closeBtn.on(mobileUtil.tapEvent, function(ev) {
-                    self.closeDialog();
-                    self.settings.onClickCloseBtn();
+                    var callback = self.settings.onClickCloseBtn();
+                    if (callback || callback === undefined) {
+                        self.closeDialog();
+                    } 
                 }).on('touchend', function(ev) {
                     ev.preventDefault();
                 });
@@ -112,9 +127,11 @@
                 if (self.settings.buttons.length) {
                     $.each(self.settings.buttons, function(index, item) {
                         self.$dialogContentFt.children('button').eq(index).on(mobileUtil.tapEvent, function(ev) {
-                            self.closeDialog();
-                            item.callback();
                             ev.preventDefault();
+                            var callback = item.callback();
+                            if (callback || callback === undefined) {
+                                self.closeDialog();
+                            }
                         });
                     });
                 }
@@ -192,6 +209,10 @@
                         self.$dialog.append(self.$dialogContent);
                         $('body').append(self.$dialog);
 
+                        if (self.settings.bodyNoScroll) {
+                            $('body').addClass('body-no-scroll');
+                        }
+
                         // 设置弹窗提示内容最大高度
                         if (self.settings.contentScroll) {
                             self._setDialogContentHeight();
@@ -235,7 +256,11 @@
                         // 设置弹窗提示内容最大高度
                         if (self.settings.contentScroll) {
                             self._setDialogContentHeight();
-                        }                        
+                        }
+                        
+                        if (self.settings.bodyNoScroll) {
+                            $('body').addClass('body-no-scroll');
+                        }
 
                         break;
                     case 'toast':
@@ -262,6 +287,10 @@
                         self.$dialogContent.append(self.$dialogContentBd);
                         self.$dialog.append(self.$dialogContent);
                         $('body').append(self.$dialog);
+
+                        if (self.settings.bodyNoScroll) {
+                            $('body').addClass('body-no-scroll');
+                        }
 
                         break;
                     case 'notice':
@@ -293,6 +322,10 @@
                         self.$dialogContent.append(self.$dialogContentBd);
                         self.$dialog.append(self.$dialogContent);
                         $('body').append(self.$dialog);
+
+                        if (self.settings.bodyNoScroll) {
+                            $('body').addClass('body-no-scroll');
+                        }
 
                         break;
                     default:
@@ -436,6 +469,10 @@
                 self.settings.onClosed();
                 // 重新初始化默认配置
                 self.settings = $.fn.dialog.defaults;
+
+                if (self.settings.bodyNoScroll) {
+                    $('body').removeClass('body-no-scroll');
+                }
             },
 
             /**
@@ -593,6 +630,7 @@
         style        : 'default', // alert 与 confirm 弹窗的风格 [ default: 根据访问设备平台; ios: ios 风格; android: MD design 风格 ]
         titleShow    : true,      // 是否显示标题
         titleText    : '提示',    // 标题文字
+        bodyNoScroll : false,     // body内容不可以滚动
         closeBtnShow : false,     // 是否显示关闭按钮
         content      : '',        // 弹窗提示内容, 值可以是 HTML 内容
         contentScroll: true,      // alert 与 confirm 弹窗提示内容是否限制最大高度, 使其可以滚动

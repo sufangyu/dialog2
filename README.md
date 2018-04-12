@@ -84,6 +84,11 @@ $(document).on('click', '#btn-01', function() {
             <td>标题文字</td>
         </tr>
         <tr>
+            <td>bodyNoScroll</td>
+            <td>false</td>
+            <td>body 内容不可以滚动</td>
+        </tr>
+        <tr>
             <td>closeBtnShow</td>
             <td>false</td>
             <td>是否显示关闭按钮</td>
@@ -269,3 +274,16 @@ npm install
 grunt serve
 ```
 
+**3、grunt 命令**
+```
+grunt serve  // 浏览 Demo: 本地服务器
+grunt dist   // 开发环境: 生产实际项目使用代码 
+grunt src    // 开发环境: 本地服务器; 实时刷新
+```
+
+## 最新版本
+### 2.1.0 (2018-04-12)
++ 增加 弹窗支持按钮点击后不关闭；
++ 增加 弹窗显示后，body 内容不可以再滚动配置项；
+
+[全部更新日志](https://github.com/sufangyu/dialog2/blob/master/Changelog.md)

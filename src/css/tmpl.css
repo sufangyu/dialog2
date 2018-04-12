@@ -27,9 +27,8 @@ button {
 }
 
 a {
-  -webkit-transition: -webkit-transform 1s;
-          transition: transform 1s;
-  display: -webkit-box;
+  transition: -webkit-transform 1s;
+  transition: transform 1s;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
@@ -239,7 +238,6 @@ body {
 .history-version li {
   padding: 5px 0 5px 15px;
   position: relative;
-  display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
@@ -263,7 +261,6 @@ body {
   margin-right: 10px;
 }
 .history-version .time {
-  -webkit-box-flex: 1;
   -webkit-flex: 1;
   -ms-flex: 1;
   flex: 1;

@@ -124,7 +124,6 @@
 }
 
 .dialog-content-ft {
-  display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
@@ -148,7 +147,6 @@
       transform: scaleY(0.5);
 }
 .dialog-content-ft .dialog-btn {
-  -webkit-box-flex: 1;
   -webkit-flex: 1;
   -ms-flex: 1;
   flex: 1;

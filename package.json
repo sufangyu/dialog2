@@ -1,7 +1,7 @@
 {
   "name": "dialog",
   "description": "兼容jQuery与Zepto的移动端弹窗插件。",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "homepage": "https://github.com/sufangyu/dialog2",
   "author": {
     "name": "方雨_Yu",
